@@ -110,16 +110,20 @@ void IMU_6050::readRaw(int16_t* accel_data, int16_t* gyro_data)
 }
 
 
-void IMU_6050::gyro_angle(float* g_angle, int16_t* gyro_data, float t_sample)
+float IMU_6050::gyro_angle(int16_t* gyro_data, float t_sample)
   {
-    *g_angle = *g_angle + ((float)gyro_data[0] / gyro_LSB_sentivity)*t_sample;
+	static float g_angle;
+    g_angle = *g_angle + ((float)gyro_data[0] / gyro_LSB_sentivity)*t_sample;
+	return g_angle;
   }
 
- void IMU_6050::accel_angle(float* a_angle, int16_t* accel_data)
+ float IMU_6050::accel_angle(int16_t* accel_data)
 {
+	 
     double accel_y = (float)accel_data[1] / accel_LSB_sentivity;
     double accel_z = (float)accel_data[2] / accel_LSB_sentivity;
-    *a_angle = atan2(accel_y, accel_z);   
+    float a_angle = atan2(accel_y, accel_z);
+	 return a_angle
 }
 
 
