@@ -45,8 +45,8 @@ class IMU_6050
 	void accel_config(uint8_t range);
    	void DLPF_config(uint8_t cutoff); 
 	void readRaw(int16_t* accel_data, int16_t* gyro_data);
-	void gyro_angle(float* g_angle, int16_t* gyro_data, float t_sample);
-	void accel_angle(float* a_angle, int16_t* accel_data);
+	float gyro_angle(int16_t* gyro_data, float t_sample);
+	float accel_angle(int16_t* accel_data);
     void gyroCalibrate(int16_t* gyro_data, uint16_t num_example);
     void accelCalibrate(uint8_t axis, int16_t* accel_data, uint16_t num_example);
     float get_accel_sentivity();
