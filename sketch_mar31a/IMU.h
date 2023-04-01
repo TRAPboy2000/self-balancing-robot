@@ -39,14 +39,14 @@ class IMU_6050
     uint32_t _clock_speed;
 
 	public:
-		IMU_6050(uint32_t clock_speed);
-		IMU_6050();
-		void gyro_config(uint8_t range);
-		void accel_config(uint8_t range);
-    void DLPF_config(uint8_t cutoff); 
-		void readRaw(int16_t* accel_data, int16_t* gyro_data);
-		void gyro_angle(float* g_angle, int16_t* gyro_data, float t_sample);
-		void accel_angle(float* a_angle, int16_t* accel_data);
+	IMU_6050(uint32_t clock_speed);
+	IMU_6050();
+	void gyro_config(uint8_t range);
+	void accel_config(uint8_t range);
+   	void DLPF_config(uint8_t cutoff); 
+	void readRaw(int16_t* accel_data, int16_t* gyro_data);
+	void gyro_angle(float* g_angle, int16_t* gyro_data, float t_sample);
+	void accel_angle(float* a_angle, int16_t* accel_data);
     void gyroCalibrate(int16_t* gyro_data, uint16_t num_example);
     void accelCalibrate(uint8_t axis, int16_t* accel_data, uint16_t num_example);
     float get_accel_sentivity();
